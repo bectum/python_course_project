@@ -1,0 +1,59 @@
+class Studente:
+    def __init__(self, name, surname, age, matricola):
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.matricola = matricola
+        self.grades = []
+
+    def presentati(self):
+        print(
+            f"Salve, mi chiamo {self.name} {self.surname}, ho {self.age} anni e la mia matricola è {self.matricola}"
+        )
+
+    def aggiungi_voto(self, grade):
+        if 18 <= grade <= 30:
+            self.grades.append(grade)
+            print(
+                f"Voto {grade} registrato correttamente per {self.name} {self.surname}."
+            )
+        elif grade < 18:
+            print(f"Esame non superato: il voto {grade} è insufficiente.")
+        else:
+            print("Errore: voto superiore a 30.")
+
+    def calcola_media(self):
+        if not self.grades:
+            return 0
+        else:
+            media = sum(self.grades) / len(self.grades)
+            print(f"Lo/a studente {self.name} {self.surname} ha media pari a {media}")
+
+    def ore_studio(self, hours):
+        print(f"Lo/a studente/ssa {self.name} {self.surname} ha studiato {hours} ore.")
+
+
+studente1 = Studente("Rebecca", "Tumolo", 22, "20114602")
+studente2 = Studente("Zoro", "Roronoa", 21, "20082462")
+
+studente1.presentati()
+
+studente1.aggiungi_voto(28)
+studente1.aggiungi_voto(22)
+studente1.aggiungi_voto(30)
+studente1.aggiungi_voto(29)
+studente1.aggiungi_voto(27)
+studente1.calcola_media()
+
+studente1.ore_studio(20)
+
+studente2.presentati()
+
+studente2.aggiungi_voto(30)
+studente2.aggiungi_voto(18)
+studente2.aggiungi_voto(19)
+studente2.aggiungi_voto(27)
+studente2.aggiungi_voto(23)
+studente2.calcola_media()
+
+studente2.ore_studio(15)
